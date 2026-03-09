@@ -1,0 +1,13 @@
+import json
+
+def load_jsonl(filepath):
+    dataset = []
+    with open(filepath, 'r') as f:
+        for line in f:
+            data = json.loads(line)
+            # Ensure your JSON has 'id' and 'text' keys
+            dataset.append({"id": data["id"], "text": data["text"]})
+    return dataset
+
+# Replace sample_data assignment:
+# sample_data = load_jsonl("your_massive_dataset.jsonl")
